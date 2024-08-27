@@ -11,25 +11,39 @@
 
 <body>
   <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
+    <header class="display-flex align-start p-2">
       
       <nav>
-         <button class="no-button" id="logout">Home</button>
-          <button class="no-button" id="logout">Dashboard</button>
+         <a class="no-button" href="/">Home</a>
+         <a class="no-button" href="/dashboard">Dashboard</a>
+          
+          
 
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
         <button class="no-button" id="logout">logout</button>
         {{else}}
-        <a href="/login">login</a>
+        <a class="no-button" href="/login">login</a>
         {{/if}}
 
       </nav>
 
-      <h1>
-        <span role="img" aria-label="money">💸</span>
-        <a href="/">THE TECH BLOG</a>
-      </h1>
+
+    {{#if dashboard}}
+  <h1>
+    <a class="heading" href="/">YOUR DASHBOARD</a>
+  </h1>
+{{else}}
+  <h1>
+    <a class="heading" href="/">THE TECH BLOG</a>
+  </h1>
+{{/if}}
+
+
+
+
+
+     
 
     </header>
     <main class="container container-fluid mt-5">

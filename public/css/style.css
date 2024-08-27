@@ -2,12 +2,74 @@ header, .project:not(:last-child) {
   border-bottom: 1px solid #ccc;
 }
 
+header{
+  background-color: rgb(17, 16, 16);
+  flex-direction: column;
+  gap: 30px;
+  }
+
+  nav{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 20px;
+   
+  }
+
+  nav button{
+    font-size: 20px;
+  }
+
+  .heading{
+    background-color: #ccc;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 8px 2px 0px rgb(0, 255, 255);
+    margin-left: 20px;
+    color: black;
+    
+   
+  }
+
+  .post-title{
+    background-color: black;
+    padding: 10px;
+  }
+
+  .post-title a{
+color: white;
+  }
+
+  .title-date p{
+    color: white;
+    font-size: 12px;
+    font-style: italic;
+  }
+
+  .title-date{
+     background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .project{
+    border: 2px solid black;
+  }
+
+
+
+
+
+
+
 .no-button {
   background: none;
   border: none;
   padding: 0;
   cursor: pointer;
-  color: #1b89bc;
+  color: #ffffff;
   text-decoration: none;
   font-size: 100%;
 }
@@ -17,8 +79,4 @@ header, .project:not(:last-child) {
   text-decoration: underline;
 }
 
-.dollar-amount {
-  color: #056605;
-  font-weight: bold;
-  margin-left: -5px;
-}
+
