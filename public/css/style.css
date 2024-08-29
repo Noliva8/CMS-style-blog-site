@@ -80,3 +80,36 @@ color: white;
 }
 
 
+.new-post{
+
+display: flex;
+
+justify-content: space-between;
+align-items: center;
+
+}
+
+
+.add-post-link{
+  background-color: black;
+  padding: 10px;
+  text-decoration: none;
+  
+  border-radius: 10px;
+  color: white;
+  font-size: 22px;
+ 
+}
+
+
+
+.added-post{
+  width: 100%;
+  background-color: black;
+  display: flex;
+}
+.added-post p{
+  color: white;
+  font-size: 12px;
+  font-style: italic;
+}

@@ -1,0 +1,25 @@
+<div class="col-md-6">
+  <h3>Edit post:</h3>
+
+  <form class="form new-post-update-form">
+
+    <div class="form-group">
+      <label for="post-update-title">Update Title: </label>
+      <input class="form-input" type="text" id="post-update-title" name="post-update-title" value="{{title}}" />
+    </div>
+
+    <div class="form-group">
+      <label for="post-update-content">Update Content: </label>
+      <textarea class="form-input" id="post-update-content" name="post-update-content">{{content}}</textarea>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn update-btn-primary">Update the post</button>
+
+      <button type="button" class="btn btn-sm btn-danger" data-id="{{id}}" id="delete-post-btn">DELETE</button>
+      
+    </div>
+  </form>
+</div>
+
+<script src="/js/postUpdate.js"></script>
