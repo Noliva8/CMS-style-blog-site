@@ -107,9 +107,50 @@ align-items: center;
   width: 100%;
   background-color: black;
   display: flex;
+  border-radius: 10px;
+  box-shadow: 8px 8px 8px rgba(3, 0, 0, 0.7);
 }
 .added-post p{
   color: white;
   font-size: 12px;
   font-style: italic;
+}
+
+/*  dashboard */
+/* ----------- */
+
+.new-post .create-post a {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+.post-title a {
+  color: #ffffff; 
+}
+
+.post-title a:hover {
+  text-decoration: underline;
+}
+
+.post-item {
+  border-bottom: 1px solid #e9ecef;
+  padding-bottom: 10px;
+}
+
+.container {
+  max-width: 1140px; 
+}
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+/* responsivness of dashboard */
+/* ------------------------ */
+@media (max-width: 767px) {
+  .post-item {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 }

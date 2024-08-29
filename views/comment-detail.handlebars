@@ -1,0 +1,31 @@
+<!-- Display the main post -->
+<div class="row mb-4 project">
+  <div class="col-lg-12 title-date">
+    <h2 class="post-title">
+      {{post.title}}
+    </h2>
+   
+    <p>Posted by {{post.user.name}} on {{format_date post.date_created}}</p>
+  </div>
+  <div class="col-md-12">
+    <p>
+      {{post.content}}
+    </p>
+  </div>
+</div>
+
+<!-- Display comments if available -->
+{{#if post.comments.length}}
+  {{#each post.comments as |comment| }}
+    <div class="row mb-4 project">
+      <div class="col-lg-12 title-date">
+        <p>Comment by {{comment.user.name}} on {{format_date comment.date_created}}</p>
+      </div>
+      <div class="col-md-12">
+        <p>
+          {{comment.comment}}
+        </p>
+      </div>
+    </div>
+  {{/each}}
+{{/if}}

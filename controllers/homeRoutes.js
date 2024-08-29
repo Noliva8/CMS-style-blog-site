@@ -179,11 +179,14 @@ router.get('/comment/:id', async (req, res) => {
 
 // find all the comment
 // -------------------
-
-router.get('/', async (req, res) => {
+// Route to render comment details for a specific post
+router.get('/comment-detail/:id', async (req, res) => {
   try {
-    // Fetch posts with comments and user details
-    const posts = await Post.findAll({
+    const postId = req.params.id;
+
+    // Fetch a specific post with its comments and user details
+    const post = await Post.findOne({
+      where: { id: postId },
       include: [
         {
           model: Comment,
@@ -198,15 +201,19 @@ router.get('/', async (req, res) => {
       ],
     });
 
-    // Serialize data
-    const postsDataWithComment = posts.map(post => post.get({ plain: true }));
+    if (!post) {
+      return res.status(404).send('Post not found');
+    }
 
-    console.log(`Serialized data: ${JSON.stringify(postsDataWithComment, null, 2)}`);
+    // Serialize data
+    const postDataWithComments = post.get({ plain: true });
+
+    console.log(`Serialized data: ${JSON.stringify(postDataWithComments, null, 2)}`);
     
-    // Render homepage with posts and their comments
-    res.render('homepage', { posts: postsDataWithComment });
+    // Render comment-detail with the specific post and its comments
+    res.render('comment-detail', { post: postDataWithComments });
   } catch (err) {
-    console.error('Error fetching posts and comments:', err);
+    console.error('Error fetching post and comments:', err);
     res.status(500).send('Server Error');
   }
 });

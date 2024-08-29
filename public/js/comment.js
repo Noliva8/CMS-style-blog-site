@@ -7,7 +7,7 @@ const addComment = async (event) => {
   
   try {
     if (commentContent && postId) {
-      const response = await fetch('/api/comments', {
+      const response = await fetch('/api/comments', { 
         method: 'POST',
         body: JSON.stringify({ comment: commentContent, post_id: postId, user_id: userId }),
         headers: {
@@ -16,8 +16,7 @@ const addComment = async (event) => {
       });
 
       if (response.ok) {
-        document.location.replace('/');
-        
+        document.location.replace(`/comment-detail/${postId}`); 
       } else {
         const errorText = await response.text();
         alert('Failed to create comment: ' + errorText);
