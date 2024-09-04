@@ -32,6 +32,18 @@ header{
    
   }
 
+  .landing{
+  height: 400px;
+  background-image: url("../images/landing.jpg");
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:start; 
+}
+
   .post-title{
     background-color: black;
     padding: 10px;
@@ -146,6 +158,11 @@ align-items: center;
   width: 100%;
 }
 
+
+.comment-name-date{
+  display: flex;
+  justify-content: space-between;
+}
 /* responsivness of dashboard */
 /* ------------------------ */
 @media (max-width: 767px) {

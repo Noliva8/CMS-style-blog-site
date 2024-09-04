@@ -148,13 +148,20 @@ router.get('/comment/:id', async (req, res) => {
       include: [
         {
           model: Comment,
+          include: [
+            {
+              model: User,
+              attributes: ['id', 'name'], 
+            },
+          ],
           attributes: ['id', 'comment', 'date_created'],
           order: [['createdAt', 'ASC']], 
         },
-        {
-          model: User,
-          attributes: ['id','name'],
-        },
+        
+        // {
+        //   model: User,
+        //   attributes: ['id','name'],
+        // },
       ],
     });
 
@@ -166,8 +173,8 @@ router.get('/comment/:id', async (req, res) => {
     console.log(`Serialized data: ${JSON.stringify(posts, null, 2)}`);
 
     res.render('comment', {
-      ...posts
-      
+      ...posts, post: postWithComments
+    
     });
   } catch (err) {
     console.error('Error fetching post with comments:', err);
@@ -204,14 +211,16 @@ router.get('/comment-detail/:id', async (req, res) => {
     if (!post) {
       return res.status(404).send('Post not found');
     }
+    res.status(200).json(post);
+    console.log(post);
 
     // Serialize data
     const postDataWithComments = post.get({ plain: true });
 
-    console.log(`Serialized data: ${JSON.stringify(postDataWithComments, null, 2)}`);
+    console.log(`SELIALIZED DATA: ${JSON.stringify(postDataWithComments, null, 2)}`);
     
     // Render comment-detail with the specific post and its comments
-    res.render('comment-detail', { post: postDataWithComments });
+    res.render('comment-detail', { postDataWithComments });
   } catch (err) {
     console.error('Error fetching post and comments:', err);
     res.status(500).send('Server Error');

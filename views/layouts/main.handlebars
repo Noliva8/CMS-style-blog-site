@@ -29,26 +29,36 @@
       </nav>
 
 
-    {{#if dashboard}}
+ 
+
+    </header>
+
+<main>
+
+     {{#if dashboard}}
+
   <h1>
     <a class="heading" href="/">YOUR DASHBOARD</a>
   </h1>
+  
 {{else}}
+
   <h1>
     <a class="heading" href="/">THE TECH BLOG</a>
   </h1>
+
+   <div class="landing">
+            <h2 class="animate__animated animate__fadeInLeft landing-title">Publish your innovation, your way</h2>
+            <p class="landing-title"><span>---</span> a unique and beautiful blog easily<span>---</span></p>
+
+          </div>
 {{/if}}
 
-
-
-
-
-     
-
-    </header>
-    <main class="container container-fluid mt-5">
+    <section class="container container-fluid mt-5">
       <!-- Render the sub layout -->
       {{{ body }}}
+    </section>
+
     </main>
     
     <footer>
