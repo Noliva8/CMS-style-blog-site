@@ -16,7 +16,7 @@ const addComment = async (event) => {
       });
 
       if (response.ok) {
-        document.location.replace(`/comment-detail/${postId}`); 
+        document.location.replace(`/comment/${postId}`); 
       } else {
         const errorText = await response.text();
         alert('Failed to create comment: ' + errorText);
